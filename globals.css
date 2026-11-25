@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #121212;
+  --color-foreground: #ffffff;
+  --color-card: #171717;
+  --color-secondary: #212121;
+  --color-muted: #212121;
+  --color-accent: #262626;
+  --color-primary: #cc9f66;
+  --color-gold: #cc9f66;
+  --color-gold-light: #dec9a4;
+  --color-border: #333333;
+  --color-input: #3d3d3d;
+  --color-olive: #6d863c;
+  --color-slate-accent: #6b7b93;
+  --color-destructive: #ba2b2b;
+
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --font-body: var(--font-eb-garamond), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-script: var(--font-allison), cursive;
+}
+
+:root {
+  --radius: 0rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body {
+  position: relative;
+  background-color: #121212;
+  background-image: radial-gradient(
+    ellipse 80% 40% at 50% 0%,
+    rgba(255, 255, 255, 0.035),
+    transparent 70%
+  );
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-feature-settings: "lnum" 1;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle architectural paper/stone grain overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.display-heading {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #cc9f66;
+}
+
+@keyframes slowZoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-slow-zoom {
+  animation: slowZoom 28s ease-in-out infinite;
+}
+
+/* Custom hairline scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #cc9f66;
+}
